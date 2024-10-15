@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Product Price API
+  version: 1.0.0
+paths:
+  /api/prices:
+    get:
+      summary: Retrieve product price
+      parameters:
+        - name: productId
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: brandId
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: applicationDate
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Price found
+        '404':
+          description: Price not found
